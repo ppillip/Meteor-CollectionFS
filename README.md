@@ -97,7 +97,6 @@ $ meteor add cfs:dropbox
 $ meteor add iyyang:cfs-aliyun
 ``` 
 
-Depending on what you need to do, you may need to add additional add-on packages. 
 필요에 따라서 추가 애드온 패키지를 설치하여 사용 할수 있다. 이것들은 문서 섹션에 설명되 있다.
 
 ```bash
@@ -110,19 +109,17 @@ CollectionFS 패키지는 2개의 글로벌 변수를 사용 할수 있게한다
 `FS.File` 과 `FS.Collection` 이다.
 
 * `FS.File` 인스턴스는 클라이언트 또는 서버의 파일과 그것의 데이터를 감싼다. 브라우저의 `File` object 와 비슷하다 (그리고 `File` object로 부터 생성할수있다), 하지만 추가 properties 와 methods를 가지고 있다. `find` 와 `findOne`의 호출에 의해 반환된 instance 의 methods 는 reactive 이다.
-* `FS.Collection` 컬렉션을 제공한다. 그리고 그 컬렉션은 저장 파일 정보를 가지고 있다. `FS.Collection` 은  `Mongo.Collection` instance에 기반을 두고 있다. Most collection methods, such as `find` and `insert` are available on the `FS.Collection` instance. If you need to call other collection methods such as `_ensureIndex`, you can call them directly on the underlying `Mongo.Collection` instance available through `myFSCollection.files`.
+* `FS.Collection` 컬렉션을 제공한다. 그리고 그 컬렉션은 저장 파일 정보를 가지고 있다. `FS.Collection` 은  `Mongo.Collection` instance에 기반을 두고 있다. 대부분의 컬렉션 메소드들 즉, `find` 나 `insert` 등의 메소드를 `FS.Collection`은 제공한다. 만약  `_ensureIndex` 같은 다른 컬렉션 메소드를 사용하고 싶다면,`Mongo.Collection` instance 에 기반을 둔 `myFSCollection.files` 를  통해서도 가능 하다..
 
-A document from a `FS.Collection` is represented as a `FS.File`.
+`FS.Collection` 문서는  `FS.File` 로 표현 될수 있다.
 
-CollectionFS also provides an HTTP upload package that has the necessary
-mechanisms to upload files, track upload progress reactively, and pause and
-resume uploads. 
+CollectionFS 는 HTTP 업로드 패키지를 제공한다. 그것은 파일업로드의 기본 매카니즘을 제공한다. 리엑티브하게 업로드상태를 보는 기능과 일시정지와 업로드 재개 기능을 제공한다. 
 
 ## 시작하기
 
-The first step in using this package is to define a `FS.Collection`.
+패키지를 사용할때 첫번째 작업은 `FS.Collection` 를 정의 하는것이다.
 
-### Creat the FS Collection and Filestore
+### FS Collection 과 Filestore 생성하기
 *common.js:*
 
 ```js
@@ -131,11 +128,7 @@ Images = new FS.Collection("images", {
 });
 ```
 
-In this example, we've defined a FS.Collection named "images", which will
-be a new collection in your MongoDB database with the name "cfs.images.filerecord". We've
-also told it to use the filesystem storage adataper and store the files in `~/uploads` on 
-the local filesystem. If you don't specify a `path`, a `cfs/files` folder in your app 
-container (bundle directory) will be used.
+이 예제에서 우리는 "images" 라는 이름의 FS.Collection 을 생성 했다. 이것은 몽고디비 데이터베이스에 "cfs.images.filerecord" 라는 이름으로 컬렉션을 생성한다. We've also told it to use the filesystem storage adataper and store the files in `~/uploads` on the local filesystem. If you don't specify a `path`, a `cfs/files` folder in your app container (bundle directory) will be used.
 
 Your FS.Collection and FS.Store variables do not necessarily have to be
 global on the client or the server, but be sure to give them the same name
