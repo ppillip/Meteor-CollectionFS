@@ -2,8 +2,8 @@ CollectionFS
 ============
 
 CollectionFS is a suite of Meteor packages that together provide a complete file
-management solution including uploading, downloading, storage, synchronization,
-manipulation, and copying. It supports several storage adapters for saving to
+management solution including 업로드, 다운로드, 저장, 동기화,
+관리, 그리고 복사. It supports several storage adapters for saving to
 the local filesystem, GridFS, or S3, and additional storage adapters can be
 created.
 
