@@ -17,26 +17,26 @@ Victor Leung wrote a great [quick start guide](https://medium.com/@victorleungtw
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [중요 사항](#important-notes)
-- [설치](#installation)
-- [소개](#introduction)
-- [시작하기](#getting-started)
-  - [업로드 해보기](#initiate-the-upload)
-  - [`insert` 제대로 사용하기](#using-insert-properly)
-  - [업로드이후 작업](#after-the-upload)
-- [스토리지 아답터](#storage-adapters)
-- [파일 조작하기](#file-manipulation)
+- [중요 사항](#중요-사항)
+- [설치](#설치)
+- [소개](#소개)
+- [시작하기](#시작하기)
+  - [업로드 해보기](#업로드-해보기)
+  - [`insert` 제대로 사용하기](#insert-제대로-사용하기)
+  - [업로드이후 작업](#업로드이후-작업)
+- [스토리지 아답터](#스토리지-아답터)
+- [파일 조작하기](#파일-조작하기)
   - [transformWrite / transformRead](#transformwrite--transformread)
   - [beforeWrite](#beforewrite)
-- [이미지 조작하기](#image-manipulation)
-  - [기본 예제](#basic-example)
-  - [최적화](#optimizing)
-- [필터링](#filtering)
-- [FS.File 인스턴스](#an-fsfile-instance)
+- [이미지 조작하기](#이미지-조작하기)
+  - [기본 예제](#기본-예제)
+  - [최적화](#최적화)
+- [필터링](#필터링)
+- [FS.File 인스턴스](#fsfile-인스턴스)
   - [Storing FS.File references in your objects](#storing-fsfile-references-in-your-objects)
-- [Security](#security)
+- [보안](#보안)
   - [Securing Based on User Information](#securing-based-on-user-information)
-- [Display an Uploaded Image](#display-an-uploaded-image)
+- [업로드 이미지 표시하기](#업로드-이미지-표시하기)
 - [UI Helpers](#ui-helpers)
   - [FS.File Instance Helper Methods](#fsfile-instance-helper-methods)
   - [url](#url)
@@ -557,7 +557,7 @@ Meteor.publish("memberAndPhotos", function (userId) {
 });
 ```
 
-## Security
+## 보안
 
 File uploads and downloads can be secured using standard Meteor `allow`
 and `deny` methods. To best understand how CollectionFS security works, you
@@ -619,7 +619,7 @@ fsCollection.insert(fsFile, function (err) {
 Note that you will want to verify this `owner` metadata in a `deny` function
 since the client could put any user ID there.
 
-## Display an Uploaded Image
+## 업로드 이미지 표시하기
 
 Create a helper that returns your image files:
 
