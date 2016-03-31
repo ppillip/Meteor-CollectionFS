@@ -29,10 +29,10 @@ Victor Leung wrote a great [quick start guide](https://medium.com/@victorleungtw
   - [transformWrite / transformRead](#transformwrite--transformread)
   - [beforeWrite](#beforewrite)
 - [이미지 조작하기](#image-manipulation)
-  - [Basic Example](#basic-example)
-  - [Optimizing](#optimizing)
+  - [기본 예제](#basic-example)
+  - [최적화](#optimizing)
 - [필터링](#filtering)
-- [An FS.File Instance](#an-fsfile-instance)
+- [FS.File 인스턴스](#an-fsfile-instance)
   - [Storing FS.File references in your objects](#storing-fsfile-references-in-your-objects)
 - [Security](#security)
   - [Securing Based on User Information](#securing-based-on-user-information)
@@ -335,7 +335,7 @@ To get this set up:
 1. Install [GraphicsMagick](http://www.graphicsmagick.org/) or [ImageMagick](http://www.imagemagick.org/script/index.php) on your development machine and on any server that will host your app. (The free Meteor deployment servers do not have either of these, so you can't deploy to there.) These are normal operating system applications, so you have to install them using the correct method for your OS. For example, on Mac OSX you can use `brew install graphicsmagick` assuming you have Homebrew installed.
 2. Add the `cfs:graphicsmagick` Meteor package to your app: `meteor add cfs:graphicsmagick`
 
-### Basic Example
+### 기본 예제
 
 ```js
 var createThumb = function(fileObj, readStream, writeStream) {
@@ -358,7 +358,7 @@ Images = new FS.Collection("images", {
 
 Check out the [Wiki](https://github.com/CollectionFS/Meteor-CollectionFS/wiki) for more examples and How-tos.
 
-### Optimizing
+### 최적화
 
 * When you insert a file, a worker begins saving copies of it to all of the
 stores you define for the collection. The copies are saved to stores in the
@@ -422,7 +422,7 @@ only *in addition to* content type checks, and not instead of content type check
 The file extensions must be specified without a leading period. Extension matching
 is case-insensitive.
 
-## An FS.File Instance
+## FS.File 인스턴스
 
 An `FS.File` instance is an object with properties similar to this:
 
