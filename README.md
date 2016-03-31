@@ -63,19 +63,19 @@ If you have Documentation feedback/requests please post on [issue 206](https://g
 
 ## 설치
 
-**Only Meteor 0.9.0 and later are currently supported**
+**Meteor 0.9.0 이상 버전만을 지원**
 
 ```bash
 $ cd <app dir>
 ``` 
 
-You must add `cfs:standard-packages`, which is the main package:
+반드시 메인 패키지인 `cfs:standard-packages`를 설치하여야한다:
 
 ```bash
 $ meteor add cfs:standard-packages
 ``` 
 
-You must add at least one storage adapter package. See the Storage Adapters section for a list of the available storage adapter packages. At least `cfs:gridfs` or `cfs:filesystem` must be added, too, even if you are not using them. The temporary store requires one of them.
+반드시 스토리지 아답터 패키지중 하나를 선택후 설치 해야 한다. 아래 스토리지 아답터 패키지중 하나를 아래 리스트에서 참조하여 설치해보자. 적어도 `cfs:gridfs` 나 `cfs:filesystem` 중 하나를 ,비록 사용 하지 않을지라도, 설치하여야한다. 아래중하나가 임시저장소로 필요하다.
 
 ```bash
 $ meteor add cfs:gridfs
