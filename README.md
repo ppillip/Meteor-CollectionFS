@@ -1,12 +1,8 @@
 CollectionFS
 ============
 
-CollectionFS is a suite of Meteor packages that together provide a complete file
-management solution including 업로드, 다운로드, 저장, 동기화,
-관리, 그리고 복사. It supports several storage adapters for saving to
-the local filesystem, GridFS, or S3, and additional storage adapters can be
-created.
-이것은 로컬 파일, 몽고디비의 GridFS, 아마존 S3 아답터를 지원 한다. 그리고 추가 저장 아답터들을 개발해서 추가할 수도 있다.
+CollectionFS 는 미티어에 적합한 패키지로서, 파일 업로드, 다운로드, 저장, 동기화,
+관리, 그리고 복사등의 기능을 제공한다. 또한, 로컬 파일, 몽고디비의 GridFS, 아마존 S3 아답터를 지원 한다. 그리고 추가 저장 아답터들을 개발해서 추가할 수도 있다.
 
 [![Build Status](https://travis-ci.org/CollectionFS/Meteor-CollectionFS.png?branch=master)](https://travis-ci.org/CollectionFS/Meteor-CollectionFS)
 [![Join the chat at https://gitter.im/CollectionFS/Meteor-CollectionFS](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/CollectionFS/Meteor-CollectionFS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
