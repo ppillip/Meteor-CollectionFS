@@ -75,7 +75,7 @@ $ cd <app dir>
 $ meteor add cfs:standard-packages
 ``` 
 
-반드시 스토리지 아답터 패키지중 하나를 선택후 설치 해야 한다. 아래 스토리지 아답터 패키지중 하나를 아래 리스트에서 참조하여 설치해보자. 적어도 `cfs:gridfs` 나 `cfs:filesystem` 중 하나를 ,비록 사용 하지 않을지라도, 설치하여야한다. 아래중하나가 임시저장소로 필요하다.
+반드시 스토리지 아답터중 하나를 설치 하여야한다. 스토리지 아답터 패키지는 아래 리스트와 같다. 비록 사용 하지 않더라도, 적어도 `cfs:gridfs` 나 `cfs:filesystem` 중 하나를 반드시 설치하여야한다. 임시저장소가 그중 하나를 필요로 한다. 
 
 ```bash
 $ meteor add cfs:gridfs
@@ -97,7 +97,8 @@ $ meteor add cfs:dropbox
 $ meteor add iyyang:cfs-aliyun
 ``` 
 
-Depending on what you need to do, you may need to add additional add-on packages. These are explained in the documentation sections to which they apply.
+Depending on what you need to do, you may need to add additional add-on packages. 
+필요에 따라서 추가 애드온 패키지를 설치하여 사용 할수 있다. 이것들은 문서 섹션에 설명되 있다.
 
 ```bash
 $ meteor add <CFS add-on package name>
@@ -105,14 +106,11 @@ $ meteor add <CFS add-on package name>
 
 ## 소개
 
-The CollectionFS package makes available two important global variables:
-`FS.File` and `FS.Collection`.
+CollectionFS 패키지는 2개의 글로벌 변수를 사용 할수 있게한다:
+`FS.File` 과 `FS.Collection` 이다.
 
-* An `FS.File` instance wraps a file and its data
-on the client or server. It is similar to the browser `File` object (and can be
-created from a `File` object), but it has additional properties and methods. Many of its methods are reactive when the instance is returned by a call to `find` or `findOne`.
-* An `FS.Collection` provides a collection in which information about 
-files can be stored. It is backed by an underlying normal `Mongo.Collection` instance. Most collection methods, such as `find` and `insert` are available on the `FS.Collection` instance. If you need to call other collection methods such as `_ensureIndex`, you can call them directly on the underlying `Mongo.Collection` instance available through `myFSCollection.files`.
+* `FS.File` 인스턴스는 클라이언트 또는 서버의 파일과 그것의 데이터를 감싼다. 브라우저의 `File` object 와 비슷하다 (그리고 `File` object로 부터 생성할수있다), 하지만 추가 properties 와 methods를 가지고 있다. `find` 와 `findOne`의 호출에 의해 반환된 instance 의 methods 는 reactive 이다.
+* `FS.Collection` 컬렉션을 제공한다. 그리고 그 컬렉션은 저장 파일 정보를 가지고 있다. `FS.Collection` 은  `Mongo.Collection` instance에 기반을 두고 있다. Most collection methods, such as `find` and `insert` are available on the `FS.Collection` instance. If you need to call other collection methods such as `_ensureIndex`, you can call them directly on the underlying `Mongo.Collection` instance available through `myFSCollection.files`.
 
 A document from a `FS.Collection` is represented as a `FS.File`.
 
