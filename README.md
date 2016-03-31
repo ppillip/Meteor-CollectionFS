@@ -1,8 +1,8 @@
 CollectionFS
 ============
 
-CollectionFS 는 미티어에 적합한 패키지로서, 파일 업로드, 다운로드, 저장, 동기화,
-관리, 그리고 복사등의 기능을 제공한다. 또한, 로컬 파일, 몽고디비의 GridFS, 아마존 S3 아답터를 지원 한다. 그리고 추가 저장 아답터들을 개발해서 추가할 수도 있다.
+미티어에 패키지중 하나인 CollectionFS는 파일 업로드, 다운로드, 저장, 동기화,
+관리, 그리고 복사등의 기능을 제공한다. 또한, 저장은 로컬 파일, 몽고디비의 GridFS, 아마존 S3 아답터로 지원 한다.추가 저장 아답터들을 개발해서 추가할 수도 있다.
 
 [![Build Status](https://travis-ci.org/CollectionFS/Meteor-CollectionFS.png?branch=master)](https://travis-ci.org/CollectionFS/Meteor-CollectionFS)
 [![Join the chat at https://gitter.im/CollectionFS/Meteor-CollectionFS](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/CollectionFS/Meteor-CollectionFS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -11,27 +11,27 @@ Victor Leung wrote a great [quick start guide](https://medium.com/@victorleungtw
 
 [Check out the Wiki](https://github.com/CollectionFS/Meteor-CollectionFS/wiki) for more information, code examples and how-tos.
 
-## Table of Contents
+## 내용 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Important Notes](#important-notes)
-- [Installation](#installation)
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-  - [Initiate the upload](#initiate-the-upload)
-  - [Using `insert` Properly](#using-insert-properly)
-  - [After the Upload](#after-the-upload)
-- [Storage Adapters](#storage-adapters)
-- [File Manipulation](#file-manipulation)
+- [중요 사항](#important-notes)
+- [설치](#installation)
+- [소개](#introduction)
+- [시작하기](#getting-started)
+  - [업로드 해보기](#initiate-the-upload)
+  - [`insert` 제대로 사용하기](#using-insert-properly)
+  - [업로드이후 작업](#after-the-upload)
+- [스토리지 아답터](#storage-adapters)
+- [파일 조작하기](#file-manipulation)
   - [transformWrite / transformRead](#transformwrite--transformread)
   - [beforeWrite](#beforewrite)
-- [Image Manipulation](#image-manipulation)
+- [이미지 조작하기](#image-manipulation)
   - [Basic Example](#basic-example)
   - [Optimizing](#optimizing)
-- [Filtering](#filtering)
+- [필터링](#filtering)
 - [An FS.File Instance](#an-fsfile-instance)
   - [Storing FS.File references in your objects](#storing-fsfile-references-in-your-objects)
 - [Security](#security)
@@ -47,7 +47,7 @@ Victor Leung wrote a great [quick start guide](https://medium.com/@victorleungtw
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Important Notes
+## 중요 사항
 
 ### Cordova Android Bug with Meteor 1.2+
 
@@ -57,11 +57,11 @@ Due to a [bug in the Cordova Android version that is used with Meteor 1.2](https
 App.accessRule("blob:*");
 ```
 
-### Documentation Feedback
+### 문서 피드백
 
 If you have Documentation feedback/requests please post on [issue 206](https://github.com/CollectionFS/Meteor-CollectionFS/issues/206)
 
-## Installation
+## 설치
 
 **Only Meteor 0.9.0 and later are currently supported**
 
@@ -103,7 +103,7 @@ Depending on what you need to do, you may need to add additional add-on packages
 $ meteor add <CFS add-on package name>
 ``` 
 
-## Introduction
+## 소개
 
 The CollectionFS package makes available two important global variables:
 `FS.File` and `FS.Collection`.
@@ -120,7 +120,7 @@ CollectionFS also provides an HTTP upload package that has the necessary
 mechanisms to upload files, track upload progress reactively, and pause and
 resume uploads. 
 
-## Getting Started
+## 시작하기
 
 The first step in using this package is to define a `FS.Collection`.
 
@@ -157,7 +157,7 @@ Images.allow({
 });
 ```
 
-### Initiate the upload
+### 업로드 해보기
 
 Now we can upload a file from the client. Here is an example of doing so from
 the change event handler of an HTML file input:
@@ -219,7 +219,7 @@ client (managing security through allow/deny), unless you are generating
 the data on the server.
 
 
-### Using `insert` Properly
+### `insert` 제대로 사용하기
 
 When you need to insert a file that's located on a client, always call 
 `myFSCollection.insert` on the client. While you could define your own method,
@@ -238,7 +238,7 @@ Calling insert on the server should be done only when you have the file
 somewhere on the server filesystem already or you're generating the data
 on the server.
 
-### After the Upload
+### 업로드 이후 작업
 
 After the server receives the `FS.File` and all the corresponding binary file
 data, it saves copies of the file in the stores that you specified.
@@ -327,7 +327,7 @@ beforeWrite: function (fileObj) {
 
 (It's best to provide the `save: false` option to any of the setters you call in `beforeWrite`.) 
 
-## Image Manipulation
+## 이미지 조작하기
 
 A common use for `transformWrite` is to manipulate images before saving them.
 To get this set up:
@@ -370,7 +370,7 @@ inserting a new file. Or if you are storing audio files, you may want to priorit
 a "sample" store over a "full-length" store.
 
 
-## Filtering
+## 필터링
 
 You may specify filters to allow (or deny) only certain content types,
 file extensions or file sizes in a FS.Collection with the `filter` option:
