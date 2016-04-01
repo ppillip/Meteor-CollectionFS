@@ -130,9 +130,8 @@ Images = new FS.Collection("images", {
 
 이 예제에서 "images" 라는 이름의 FS.Collection 을 생성 했다. 컬렉션을 생성하면 서버의 몽고디비 데이터베이스에 "cfs.images.filerecord" 라는 이름으로 컬렉션을 생성된다. 이전에 파일 시스텝 어뎁터를 사용해야 한다고 말했었다. 그리고 아답터는 로커 파일 시스템의 `~/uploads` 경로를 사용한다. 특정 `path`를 지정하지 않으면 앱의 컨테이너 안에 `cfs/files` 라는 이름으로 폴더를 생성하여 사용한다.
 
-Your FS.Collection and FS.Store variables do not necessarily have to be
-global on the client or the server, but be sure to give them the same name
-(the first argument in each constructor) on both the client and the server.
+FS.Collection 과 FS.Store 변수는 클라이언트와 서버코드 모두 선언할 필요는 없다. 
+하지만 서버와 클라이언트 모두 같은 이름을 사용하여 인스턴스를 생성하여야한다(각 생성자의 첫번째 파라메터). 
 
 ### 업로드 권한주기 (insert)
 사용자가 FS Collection 에 submit 하기위하여, 반드시 서버코드에 `allow` 룰을 생성하자 :
@@ -176,13 +175,9 @@ Template.myForm.events({
 });
 ```
 
-Notice that the only thing we're doing is passing the browser-provided `File`
-object to `Images.insert()`. This will create a `FS.File` from the
-`File`, link it with the `Images` FS.Collection, and then immediately
-begin uploading the data to the server with reactive progress updates.
+여기서 우리가 하는 일은 브라우저가 제공하는 `File` 오브젝트를 `Images.insert()` 에 넣는것 뿐이다. 이것은 `File` 로부터 `FS.File` 을 생성한뒤 `Images` FS.Collection 에  연결한다. 그리고 리엑티브하게 상태를 업데이트 하면서 데이터를 서버로 업로드 한다. 
 
-The `insert` method can directly accept a variety of different file
-representations as its first argument:
+`insert` 메소드는 첫번째 파라메터로 다양한 형태의 포멧을 가진 파일을 받는다 : 
 
 * `File` object (client only)
 * `Blob` object (client only)
