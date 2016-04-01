@@ -128,15 +128,14 @@ Images = new FS.Collection("images", {
 });
 ```
 
-이 예제에서 우리는 "images" 라는 이름의 FS.Collection 을 생성 했다. 이것은 몽고디비 데이터베이스에 "cfs.images.filerecord" 라는 이름으로 컬렉션을 생성한다. We've also told it to use the filesystem storage adataper and store the files in `~/uploads` on the local filesystem. If you don't specify a `path`, a `cfs/files` folder in your app container (bundle directory) will be used.
+이 예제에서 "images" 라는 이름의 FS.Collection 을 생성 했다. 컬렉션을 생성하면 서버의 몽고디비 데이터베이스에 "cfs.images.filerecord" 라는 이름으로 컬렉션을 생성된다. 이전에 파일 시스텝 어뎁터를 사용해야 한다고 말했었다. 그리고 아답터는 로커 파일 시스템의 `~/uploads` 경로를 사용한다. 특정 `path`를 지정하지 않으면 앱의 컨테이너 안에 `cfs/files` 라는 이름으로 폴더를 생성하여 사용한다.
 
 Your FS.Collection and FS.Store variables do not necessarily have to be
 global on the client or the server, but be sure to give them the same name
 (the first argument in each constructor) on both the client and the server.
 
-### Adding upload permissions (insert)
-To allow users to submit files to the FS Collection, you must create an `allow` rule in Server code:
-
+### 업로드 권한주기 (insert)
+사용자가 FS Collection 에 submit 하기위하여, 반드시 서버코드에 `allow` 룰을 생성하자 :
 **server.js** or within **Meteor.isServer** block:
 
 ```javascript
@@ -149,9 +148,7 @@ Images.allow({
 ```
 
 ### 업로드 해보기
-
-Now we can upload a file from the client. Here is an example of doing so from
-the change event handler of an HTML file input:
+이제 클라이언트에서 다음 코드와같이 업로드 할수 있다. 다음 예제는 HTML file input change 이벤트에서 업로드하는 코드이다 :
 
 ```js
 Template.myForm.events({
@@ -165,9 +162,7 @@ Template.myForm.events({
   }
 });
 ```
-
-You can optionally make this code a bit cleaner by using a provided utility
-method, `FS.Utility.eachFile`:
+옵션으로, 코드를 좀더 깔끔하게 작성하기 위하여, 제공된 `FS.Utility.eachFile` 이라는 메소드를 사용할수 있다 :
 
 ```js
 Template.myForm.events({
