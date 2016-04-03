@@ -231,7 +231,7 @@ configurable number of failed attempts at saving, the server will give up.
 To configure the maximum number of save attempts, use the `maxTries` option
 when creating your store. The default is 5.
 
-## Storage Adapters
+## 스토리지 아답터
 
 Storage adapters handle retrieving the file data and removing the file data
 when you delete the file. There are currently four available storage adapters, which are in separate
